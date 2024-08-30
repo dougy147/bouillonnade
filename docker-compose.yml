@@ -1,0 +1,44 @@
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    image: nginx:alpine
+    container_name: bouillon_nginx
+    ports:
+      - "8989:80"
+    networks:
+      - internal
+    volumes:
+      - ./data/:/var/www/html/
+      - ./logs/nginx:/var/log/nginx/
+    restart: always
+
+  php:
+    image: php:fpm-alpine
+    container_name: bouillon_php
+    networks:
+      - internal
+    volumes:
+      - ./data/:/var/www/html/
+      - ./logs/php.log:/var/log/fpm-php.www.log
+    restart: always
+
+  searxng:
+    container_name: searxng
+    image: searxng/searxng:latest
+    networks:
+      - internal
+    ports:
+      - "7555:7555"
+    environment:
+      - BIND_ADDRESS=0.0.0.0:7555
+      - BASE_URL="http://127.0.0.1:7555"
+      - INSTANCE_NAME=bouillon_searxng
+    volumes:
+      - ./settings:/etc/searxng
+    restart: always
+
+networks:
+  internal:
+    driver: bridge

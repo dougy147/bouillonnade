@@ -1,0 +1,312 @@
+/*Global variables*/
+:root {
+    /* Food inspired palette from: https://bellanowebstudio.com/food-inspired-color-palettes/*/
+    --background-color:   #f8f5dc; /* whitish*/
+    --foreground-color:   #202334; /* purplish*/
+
+    --purple:   #202334;
+    --white: 	#e9ecd9;
+    --yellow: 	#f3cb47;
+    --green: 	#2c4214;
+    --red: 	#55171c;
+
+    --image-border: 			var(--red);
+    --image-list-border: 		var(--red);
+    --image-list-background: 		var(--red);
+
+    --a: 				var(--red);
+    --div-table-color: 			var(--green);
+    --table-border: 			var(--green);
+    --table-background-color: 		var(--green);
+    --div-ingredients-color: 		var(--yellow);
+    --div-ingredients-background-color: rgba(85,23,28,0.89);
+    --td-background-color: 	        var(--yellow);
+
+    --div-steps-color: 		      	var(--red);
+    --div-steps-background-color:       rgba(243,203,71,0.89);
+
+    --expanded-about-border: 		var(--yellow);
+    --button-background-color: 		rgba(214, 214, 214, 0.8);
+    --button-border-color: 		black;
+
+    --current-recipe-color:	 	var(--red);
+    --current-recipe-background-color: 	#3d4547;
+    --current-recipe-border: 		black;
+
+    --keyword-color: 			var(--yellow);
+    --keyword-border: 			var(--red);
+    --keyword-background-color: 	var(--red);
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+}
+
+h1 {
+    text-align: center;
+}
+
+h1.recipe {
+    color: var(--yellow);
+    outline: 2px solid black;
+    text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+    background-color: rgba(0,0,0,0.2);
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50%;
+    min-width: 35%;
+    height: auto;
+    border-radius: 10px;
+    border: 3px solid var(--image-border);
+}
+
+img.logo {
+    border: none;
+    max-width: 20%;
+    min-width: 130px;
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+img.message {
+    border: none;
+    min-width: 1px;
+    height:1.2em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+img.list {
+    border: 5px solid var(--image-list-border);
+    border-radius: 12%;
+    background-color: var(--image-list-background);
+    max-width: 75%;
+    min-width: 75%;
+}
+
+a {
+    color: var(--a);
+    font-weight: bold;
+    text-decoration: none
+}
+
+li.recipe {
+    display: none;
+    width: 25%;
+    margin-bottom: 35px;
+    padding-bottom: 35px;
+    font-size: 110%;
+}
+
+div.table_overview {
+    color: var(--div-table-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    border: 1px solid var(--table-border);
+    border-radius: 10px;
+    padding: 2px;
+    margin: 2px;
+    background-color: var(--table-background-color);
+}
+
+td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid;
+    font-size: 100%;
+    background-color: var(--td-background-color);
+}
+
+div.ingredients {
+    padding: 5px; /* for mobile */
+    color: var(--div-ingredients-color);
+    background-color: var(--div-ingredients-background-color);
+    display: flex;
+    text-align: justify-center;
+    justify-content: center;
+    font-size: 120%;
+    border-top: 5px dotted var(--div-ingredients-color);
+    border-bottom: 5px dotted var(--div-ingredients-color);
+}
+@media (min-width: 350px) { /* for larger than mobile */
+    div.ingredients {
+	padding: 3%;
+    }
+}
+
+div.steps {
+    color: var(--div-steps-color);
+    background-color: var(--div-steps-background-color);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--div-steps-color);
+    width: 80%;
+    color: var(--div-steps-color);
+    text-align: justify-center;
+    font-size: 120%;
+    margin: 0 auto;
+}
+
+div.steps li {
+    margin: 20px;
+}
+
+div.video_frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:40%;
+}
+
+div.keywords {
+    text-align: center;
+    /*color: var(--keyword-color);*/
+    border: 2px solid var(--keywords-border);
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+div.source {
+    text-align: center;
+    color: var(--red);
+    background-color: rgba(243, 203, 71, 0.5);
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.keyword {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 100%;
+    color: var(--keyword-color);
+    background-color: var(--keyword-background-color);
+    border-radius: 6px;
+    margin:5px;
+    padding:5px;
+}
+
+div.date_published {
+    text-align: center;
+    font-size: 80%;
+}
+
+
+#searchbar{
+    padding:15px;
+    border-radius: 10px;
+    opacity: 0.45;
+    font-weight: bold;
+    font-size: 160%;
+    text-align: center;
+}
+
+input[type=text] {
+    width: 75%;
+    text-align: center;
+}
+
+/* if screen is less than 600px, then probably mobile phone */
+@media only screen and (max-width: 600px) {
+    table {
+	font-size: 80%;
+    }
+    td {
+	padding: 2px;
+    }
+    div.ingredients {
+	padding: 5px;
+	font-size: 130%;
+    }
+    div.steps {
+	font-size: 130%;
+    }
+    li.recipe {
+	width: 85%; /*one recipe by column for list*/
+	font-size: 130%;
+    }
+    #searchbar{
+	font-size: 130%;
+    }
+}
+
+.links {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.current_recipe {
+    border: 5px solid var(--current-recipe-border);
+    border-radius: 10px;
+    width: 65%;
+    min-width: 350px;
+    color: var(--current-recipe-color);
+    background-image: url("./assets/recipe-background.avif");
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.button {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--button-background-color);
+    padding: 10px;
+    border: 1px solid var(--button-border-color);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.button.next {
+    right: 20px;
+}
+
+.button.prev {
+    left: 20px;
+}
+
+div.footnote {
+    margin: 20px;
+    font-size: 100%;
+}
+
+#expanded-about {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 3px solid var(--expanded-about-border);
+    display: none;
+    width: 30%;
+    min-width: 350px;
+    font-size: 120%;
+}
+#expanded-about:target {
+    display: block;
+}
+
+.expandable {
+    display: none;
+    transition: width 0.3s, opacity 0.3s;
+}
+
+@media (min-width: 600px) {
+    .button:hover .expandable {
+	display: inline;
+    }
+}
+
+video {
+    width:100%;
+    border: 5px solid var(--image-list-border);
+    border-radius: 6%;
+}

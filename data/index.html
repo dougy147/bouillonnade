@@ -1,0 +1,66 @@
+<html lang="fr">
+    <script src="./js/animation-gif.js"></script>
+    <script src="./js/scrap.js"></script>
+    <script src="./js/recipes_search_and_navigate.js"></script>
+    <script src="./js/query_parameters.js"></script>
+    <script src="./js/text_processing.js"></script>
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="icon" href="./assets/icon.png" type="image/icon type">
+	<title>Au Gros Bouillon</title>
+    </head>
+    <body>
+	<center>
+	    <div style="vertical-align:middle;">
+		<h1 class="title">Au Gros Bouillon</h1>
+		<span style="font-size:150%;" class="message" id="message">( Moult recettes sans pub! )-</span>
+		<img style="vertical-align:middle" loading="lazy" class="logo" src="./assets/logo.png"/>
+	    </div>
+	</center>
+	<center>
+	    <input id="searchbar" type="text"
+				  name="search"
+				  value=""
+				  placeholder="Cherchez une recette ou collez une URL"
+				  onkeydown="if(event.key === 'Enter') { start_gif(); search_recipes() };"
+				  autofocus
+				  x-webkit-speech>
+	</center>
+
+	<center>
+	    <div id="loading" style="display:none" class="loading">
+		<br>
+		On s'active en cuisine!
+		<img class="gif" src="./assets/loading.gif" loading="eager">
+		<!--Gif generated from 'https://tsoding.github.io/emoteJAM/'--->
+	    </div>
+	</center>
+
+	<div class="links" id="links">
+	</div>
+
+	<div class="current_recipe" id="current_recipe" style="display:none">
+	</div>
+
+	<div class="button prev" id="button-prev" style="display:none;" onclick="prev_recipe();">
+	    <-
+	    <span class="expandable" id="button-prev-expand">recette précédente</span>
+	</div>
+	<div class="button next" id="button-next" style="display:none;" onclick="next_recipe();">
+	    <span class="expandable" id="button-next-expand">recette suivante</span>
+	    ->
+	</div>
+
+	<center>
+	    <div class="footnote">
+		<a href="#expanded-about">À propos</a>
+		-- version αlphα -- dougy147 (2024)
+		<div id="expanded-about">
+		    <a href="#">Au Gros Bouillon est un projet personnel à but non lucratif. Aucune donnée n'est conservée. Les requêtes auprès des sites de recettes sont effectuées par le serveur. Au Gros Bouillon n'est affilié à aucun de ces sites. Les réponses brutes sont redirigées au client, avant d'être épurées, localement, de toute substance non comestible (publicité, pistage).</a>
+		</div>
+	    </div>
+	</center>
+    </body>
+</html>
